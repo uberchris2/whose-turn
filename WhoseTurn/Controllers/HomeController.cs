@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 
 namespace WhoseTurn.Controllers
 {
@@ -6,7 +7,8 @@ namespace WhoseTurn.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var people = Db.People;
+            return View(people.ToList());
         }
     }
 }

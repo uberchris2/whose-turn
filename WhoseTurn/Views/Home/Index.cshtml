@@ -1,5 +1,9 @@
-﻿<div class="container-fluid">
+﻿@model IEnumerable<WhoseTurn.Models.Person>
+
+<div class="container-fluid">
     <h1>Who are you?</h1>
-    @Html.ActionLink("Katie", "Index", "Tasks", new { Id = 1 }, new { @class = "btn btn-info btn-lg btn-block" })
-    @Html.ActionLink("Chris", "Index", "Tasks", new { Id = 2 }, new { @class = "btn btn-warning btn-lg btn-block" })
+    @foreach (var person in Model)
+    {
+        @Html.ActionLink(person.Name, "Index", "Tasks", new { person.Id }, new { @class = "btn btn-info btn-lg btn-block" })
+    }
 </div>
