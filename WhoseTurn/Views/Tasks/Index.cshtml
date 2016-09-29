@@ -11,18 +11,18 @@
             }
         </div>
     }
-    
+
     @foreach (var person in Model.OtherPeople)
     {
         if (person.Tasks.Any())
-         {
-             <h1>@person.Name's turn:</h1>
-             <div class="list-group">
-                 @foreach (var task in person.Tasks)
-                 {
-                     <a href="#" class="list-group-item disabled">@task.Name</a>
-                 }
-             </div>
-         }
+        {
+            <h1>@person.Name's turn:</h1>
+            <div class="list-group">
+                @foreach (var task in person.Tasks)
+                {
+                    <a href="#" class="list-group-item disabled">@task.Name</a>
+                }
+            </div>
+        }
     }
 </div>
