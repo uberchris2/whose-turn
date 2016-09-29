@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<WhoseTurn.Models.Person>
 
+<script>
+    var selectedUser = localStorage.getItem('user');
+    if (selectedUser) window.location = '@Url.Action("Index", "Tasks", new { Id = "ID" })'.replace('ID', selectedUser);
+</script>
+
 <div class="container-fluid">
     <h1>Who are you?</h1>
     @foreach (var person in Model)
