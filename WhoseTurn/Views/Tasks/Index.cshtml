@@ -1,21 +1,28 @@
 ﻿@model WhoseTurn.ViewModels.TasksView
 
 <div class="container-fluid">
-    <h1>My turn:</h1>
-    <div class="list-group">
-        @foreach (var task in Model.MyTasks)
-        {
-            <a href="#" class="list-group-item list-group-item-info">@task.Name</a>
-        }
-    </div>
-    @foreach (var person in Model.OtherPeople)
+    @if (Model.MyTasks.Any())
     {
-        <h1>@person.Name's turn:</h1>
+        <h1>My turn:</h1>
         <div class="list-group">
-            @foreach (var task in person.Tasks)
+            @foreach (var task in Model.MyTasks)
             {
-                <a href="#" class="list-group-item disabled">@task.Name</a>
+                @Html.ActionLink(task.Name, "Complete", "Tasks", new { task.Id }, new { @class = "list-group-item list-group-item-info" })
             }
         </div>
+    }
+    
+    @foreach (var person in Model.OtherPeople)
+    {
+        if (person.Tasks.Any())
+         {
+             <h1>@person.Name's turn:</h1>
+             <div class="list-group">
+                 @foreach (var task in person.Tasks)
+                 {
+                     <a href="#" class="list-group-item disabled">@task.Name</a>
+                 }
+             </div>
+         }
     }
 </div>
