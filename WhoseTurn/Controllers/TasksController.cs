@@ -4,23 +4,12 @@ using System.Data.Entity;
 
 namespace WhoseTurn.Controllers
 {
-    public class TasksController : Controller
+    public class TasksController : ControllerBase
     {
-        private readonly DbModel _db = new DbModel();
-
         public ActionResult Index()
         {
-            var tasks = _db.Tasks.Include(t => t.TurnPerson);
+            var tasks = Db.Tasks.Include(t => t.TurnPerson);
             return View(tasks.ToList());
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
