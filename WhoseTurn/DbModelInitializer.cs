@@ -3,7 +3,7 @@ using WhoseTurn.Models;
 
 namespace WhoseTurn
 {
-    public class DbModelInitializer : DropCreateDatabaseAlways<DbModel> //DropCreateDatabaseIfModelChanges<DbModel>
+    public class DbModelInitializer : DropCreateDatabaseIfModelChanges<DbModel>
     {
         protected override void Seed(DbModel context)
         {
