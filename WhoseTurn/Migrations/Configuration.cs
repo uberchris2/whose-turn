@@ -1,3 +1,4 @@
+using System.Linq;
 using WhoseTurn.Models;
 
 namespace WhoseTurn.Migrations
@@ -14,15 +15,17 @@ namespace WhoseTurn.Migrations
 
         protected override void Seed(DbModel context)
         {
-            var katie = new Person { Id = 1, Name = "Katie" };
-            var chris = new Person { Id = 2, Name = "Chris" };
+            if (context.People.Any()) return;
+
+            var katie = new Person { Name = "Katie" };
+            var chris = new Person { Name = "Chris" };
             context.People.AddOrUpdate(katie, chris);
 
             var tasks = new[]
             {
-                new Task { Id = 1, Name = "Dinner", TurnPersonId = 2},
-                new Task { Id = 2, Name = "Laundry", TurnPersonId = 2},
-                new Task { Id = 3, Name = "Dishes", TurnPersonId = 2}
+                new Task { Name = "Dinner", TurnPerson = chris},
+                new Task { Name = "Laundry", TurnPerson = chris},
+                new Task { Name = "Dishes", TurnPerson = chris}
             };
             context.Tasks.AddOrUpdate(tasks);
         }
