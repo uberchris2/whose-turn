@@ -1,18 +1,21 @@
-﻿@model IEnumerable<WhoseTurn.Models.Task>
+﻿@model WhoseTurn.ViewModels.TasksView
 
 <div class="container-fluid">
     <h1>My turn:</h1>
     <div class="list-group">
-        @foreach (var task in Model.Where(t => t.TurnPerson.Name == "Katie"))
+        @foreach (var task in Model.MyTasks)
         {
             <a href="#" class="list-group-item list-group-item-info">@task.Name</a>
         }
     </div>
-    <h1>Chris' turn:</h1>
-    <div class="list-group">
-        @foreach (var task in Model.Where(t => t.TurnPerson.Name == "Chris"))
-        {
-            <a href="#" class="list-group-item disabled">@task.Name</a>
-        }
-    </div>
+    @foreach (var person in Model.OtherPeople)
+    {
+        <h1>@person.Name's turn:</h1>
+        <div class="list-group">
+            @foreach (var task in person.Tasks)
+            {
+                <a href="#" class="list-group-item disabled">@task.Name</a>
+            }
+        </div>
+    }
 </div>
