@@ -1,17 +1,23 @@
 ﻿using System.Data.Entity;
 using WhoseTurn.Models;
-using System.Linq;
 
 namespace WhoseTurn
 {
-    public class DbModelInitializer : DropCreateDatabaseIfModelChanges<DbModel>
+    public class DbModelInitializer : DropCreateDatabaseAlways<DbModel> //DropCreateDatabaseIfModelChanges<DbModel>
     {
         protected override void Seed(DbModel context)
         {
-            if (context.People.Any()) return;
+            var katie = new Person {Name = "Katie"};
+            var chris = new Person {Name = "Chris"};
+            context.People.AddRange(new []{ katie, chris });
 
-            context.People.Add(new Person {Name = "Katie"});
-            context.People.Add(new Person {Name = "Chris"});
+            var tasks = new[]
+            {
+                new Task { Name = "Dinner", TurnPerson = katie}, 
+                new Task { Name = "Laundry", TurnPerson = chris}, 
+                new Task { Name = "Dishes", TurnPerson = chris}
+            };
+            context.Tasks.AddRange(tasks);
         }
     }
 }
