@@ -1,6 +1,3 @@
-using System.Linq;
-using WhoseTurn.Models;
-
 namespace WhoseTurn.Migrations
 {
     using System.Data.Entity.Migrations;
@@ -15,19 +12,6 @@ namespace WhoseTurn.Migrations
 
         protected override void Seed(DbModel context)
         {
-            if (context.People.Any()) return;
-
-            var katie = new Person { Name = "Katie" };
-            var chris = new Person { Name = "Chris" };
-            context.People.AddOrUpdate(katie, chris);
-
-            var tasks = new[]
-            {
-                new Task { Name = "Dinner", TurnPerson = chris},
-                new Task { Name = "Laundry", TurnPerson = chris},
-                new Task { Name = "Dishes", TurnPerson = chris}
-            };
-            context.Tasks.AddOrUpdate(tasks);
         }
     }
 }

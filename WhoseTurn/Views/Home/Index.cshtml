@@ -1,14 +1,18 @@
-﻿@model IEnumerable<WhoseTurn.Models.Person>
-
+﻿@model WhoseTurn.Models.Group
 <script>
-    var selectedUser = localStorage.getItem('user');
+    var selectedUser = localStorage.getItem('userId');
     if (selectedUser) window.location = '@Url.Action("Index", "Tasks", new { Id = "ID" })'.replace('ID', selectedUser);
 </script>
 
 <div class="container-fluid">
-    <h1>Who are you?</h1>
-    @foreach (var person in Model)
-    {
-        @Html.ActionLink(person.Name, "Index", "Tasks", new { person.Id }, new { @class = "btn btn-info btn-lg btn-block" })
-    }
+    <div class="container-fluid">
+        <h1>Which group are you in?</h1>
+        @using (Html.BeginForm("Index", "People", FormMethod.Get))
+        {
+            <div class="form-group">
+                @Html.TextBox("group", null, new { @class = "form-control", placeholder="Group name" })
+            </div>
+            <input type="submit" class="btn btn-default">
+        }
+    </div>
 </div>

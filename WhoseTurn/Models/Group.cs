@@ -2,11 +2,10 @@
 
 namespace WhoseTurn.Models
 {
-    public class Person
+    public class Group
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Task> Tasks { get; set; }
-        public Group Group { get; set; }
+        public ICollection<Person> People { get; set; }
     }
 }

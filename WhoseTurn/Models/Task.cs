@@ -6,5 +6,6 @@
         public string Name { get; set; }
         public int TurnPersonId { get; set; }
         public Person TurnPerson { get; set; }
+        public Group Group { get; set; }
     }
 }
