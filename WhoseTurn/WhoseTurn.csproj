@@ -145,6 +145,10 @@
     <Compile Include="Migrations\201610082226284_AddGroups.Designer.cs">
       <DependentUpon>201610082226284_AddGroups.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610090421334_AddGroupId.cs" />
+    <Compile Include="Migrations\201610090421334_AddGroupId.Designer.cs">
+      <DependentUpon>201610090421334_AddGroupId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Person.cs" />
@@ -219,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610082226284_AddGroups.resx">
       <DependentUpon>201610082226284_AddGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610090421334_AddGroupId.resx">
+      <DependentUpon>201610090421334_AddGroupId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Security;
 using WhoseTurn.ViewModels;
 
 namespace WhoseTurn.Controllers
@@ -11,8 +10,10 @@ namespace WhoseTurn.Controllers
     {
         public ActionResult Index(int id)
         {
+            var person = Db.People.Find(id);
+            if (person == null) throw new SecurityException();
             var myTasks = Db.Tasks.Where(t => t.TurnPersonId == id).ToList();
-            var otherPeople = Db.People.Where(p => p.Id != id).Include(p => p.Tasks).ToList();
+            var otherPeople = Db.People.Where(p => p.Id != id && p.GroupId == person.GroupId).Include(p => p.Tasks).ToList();
 
             return View(new TasksView {MyTasks = myTasks, OtherPeople = otherPeople });
         }
