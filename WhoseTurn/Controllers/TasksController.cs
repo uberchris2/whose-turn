@@ -21,11 +21,9 @@ namespace WhoseTurn.Controllers
         public ActionResult Complete(int id)
         {
             var task = Db.Tasks.Include(t => t.Group.People).Single(t => t.Id == id);
-            var peopleInGroup = task.Group.People;
             var fromId = task.TurnPersonId;
-            var nextPerson = peopleInGroup
-                .OrderBy(x => x.Id)
-                .FirstOrDefault(p => p.Id > fromId) ?? peopleInGroup.First();
+            var peopleInGroup = task.Group.People.OrderBy(x => x.Id);
+            var nextPerson = peopleInGroup.FirstOrDefault(p => p.Id > fromId) ?? peopleInGroup.First();
             task.TurnPerson = nextPerson;
             Db.SaveChanges();
             return RedirectToAction("Index", new { Id = fromId });
