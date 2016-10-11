@@ -2,7 +2,7 @@
 
 namespace WhoseTurn.Controllers
 {
-    public class HomeController : ControllerBase
+    public class HomeController : Controller
     {
         public ActionResult Index()
         {
