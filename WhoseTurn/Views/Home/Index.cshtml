@@ -1,4 +1,4 @@
-﻿@model WhoseTurn.Models.Group
+﻿@model WhoseTurn.Common.Models.Group
 <script>
     var selectedUser = localStorage.getItem('userId');
     if (selectedUser) window.location = '@Url.Action("Index", "Tasks", new { Id = "ID" })'.replace('ID', selectedUser);

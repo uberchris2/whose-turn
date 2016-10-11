@@ -1,12 +1,11 @@
+using System.Data.Entity;
 using WhoseTurn.Common.Models;
 
-namespace WhoseTurn
+namespace WhoseTurn.Common
 {
-    using System.Data.Entity;
-
     public class DbModel : DbContext
     {
-        public DbModel() : base("name=DbModel") { }
+        public DbModel() : base("name=WhoseTurn.Common.DbModel") { }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Task> Tasks { get; set; }

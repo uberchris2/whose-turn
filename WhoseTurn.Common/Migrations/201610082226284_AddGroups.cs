@@ -1,8 +1,7 @@
-namespace WhoseTurn.Migrations
+using System.Data.Entity.Migrations;
+
+namespace WhoseTurn.Common.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class AddGroups : DbMigration
     {
         public override void Up()

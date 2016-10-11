@@ -1,7 +1,7 @@
-namespace WhoseTurn.Migrations
-{
-    using System.Data.Entity.Migrations;
+using System.Data.Entity.Migrations;
 
+namespace WhoseTurn.Common.Migrations
+{
     internal sealed class Configuration : DbMigrationsConfiguration<DbModel>
     {
         public Configuration()
