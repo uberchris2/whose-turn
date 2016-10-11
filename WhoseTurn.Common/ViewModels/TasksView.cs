@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using WhoseTurn.Models;
+using WhoseTurn.Common.Models;
 
-namespace WhoseTurn.ViewModels
+namespace WhoseTurn.Common.ViewModels
 {
     public class TasksView
     {

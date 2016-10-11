@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Security;
-using WhoseTurn.ViewModels;
+using WhoseTurn.Common.ViewModels;
 
 namespace WhoseTurn.Controllers
 {

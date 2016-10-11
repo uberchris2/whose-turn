@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WhoseTurn.Models
+namespace WhoseTurn.Common.Models
 {
     public class Group
     {

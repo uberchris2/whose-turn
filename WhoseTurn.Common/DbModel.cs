@@ -1,4 +1,4 @@
-using WhoseTurn.Models;
+using WhoseTurn.Common.Models;
 
 namespace WhoseTurn
 {

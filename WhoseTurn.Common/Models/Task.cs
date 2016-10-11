@@ -1,4 +1,4 @@
-﻿namespace WhoseTurn.Models
+﻿namespace WhoseTurn.Common.Models
 {
     public class Task
     {
